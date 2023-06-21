@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Customer {
+public class Company
+ {
     @Id
     @SequenceGenerator(
             name = "customer_id_sequence",
-            sequenceName = "customer_id_sequence"
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -20,7 +22,8 @@ public class Customer {
     private String email;
     private Integer age;
 
-    public Customer(Integer id,
+    public Company
+(Integer id,
                     String name,
                     String email,
                     Integer age) {
@@ -30,7 +33,8 @@ public class Customer {
         this.age = age;
     }
 
-    public Customer() {
+    public Company
+() {
     }
 
     public Integer getId() {
@@ -69,7 +73,9 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
+        Company
+ customer = (Company
+) o;
         return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email) && Objects.equals(age, customer.age);
     }
 
@@ -80,7 +86,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Company {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
